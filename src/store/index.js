@@ -1,32 +1,42 @@
-import { createStore } from 'vuex'
-import axios from 'axios'
+import { createStore } from "vuex";
+import axios from "axios";
+import categoriesName from "../constants/categoriesName";
 
 export default createStore({
   state: {
-    products:[],
-    categories:[],
-    rendering:{
-      typeWorkWindow: 'all',
-    }
-
+    products: [],
+    rendering: {
+      typeWorkWindow: "all",
+    },
   },
   mutations: {
-      SET_POSTS(state, products) {
-        state.products = products
-      },
-      SET_CATEGORIES(state, categories){
-        state.categories = categories
-      }
+    SET_PRODUCTS(state, products) {
+      state.products = products;
+    },
   },
   actions: {
-      getPosts({ commit }) {
-          axios.get('https://jsonplaceholder.typicode.com/posts')
-              .then(response => {
-                  commit('SET_POSTS', response.data)
-          })
-      },
-  
+    getPosts({ commit }) {
+      axios
+        .get("https://jsonplaceholder.typicode.com/posts")
+        .then(({ data }) =>
+          data.map(({ userId, id, title, body }) => ({
+            productCategory: categoriesName[userId - 1],
+            productCategoryId: userId,
+            productId: id,
+            productName: title.split(" ").slice(0, 2).join(" "),
+            productDescription: body,
+          }))
+        )
+        .then((data) => {
+          commit("SET_PRODUCTS", data);
+        });
+    },
   },
-  modules: {
-  }
-})
+  modules: {},
+  getters: {
+    productCategories: (state) =>
+      Array.from(
+        new Set(state.products.map(({ productCategory }) => productCategory))
+      ),
+  },
+});

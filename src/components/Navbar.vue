@@ -1,11 +1,11 @@
 <template>
-    <div class="header">
+    <div  class="header">
         <div class="header-group">
             <div @click="changeWorkWindow('all')" class="header-text" style="cursor: pointer;">Все товары</div>  
             <div class="header-text dropdown">
-            <div class="dropbtn">По категориям</div>
+             <div class="dropbtn">По категориям</div>
                 <div class="dropdown-content">
-                    <div v-for="category in categories" :key="category.id" class="item">{{category.title}}</div>
+                    <div v-for="category in productCategories" :key="category" class="item">{{category}}</div>
                 </div>
             </div>
             <div @click="changeWorkWindow('contact')" class="header-text" style="cursor: pointer;">Контакты</div>
@@ -13,45 +13,26 @@
     </div>
 </template>
 <script>
-import {mapState, mapMutations} from 'vuex'
+import {mapState, mapGetters} from 'vuex'
 export default {
  data(){
      return{
-         categories:[],
-         categoryId: [],
-         categoryName:['Самокаты', 'Лыжи', 'Люстры', 'Диваны', 'Питомцы', 'Квартиры', 'Виллы', 'Авто', 'Лодки', 'Самолеты',],
 
      }
  },
  computed:{
+    ...mapGetters(['productCategories']),
      ...mapState({
          products: 'products',
      }),
  },
  methods:{
-     ...mapMutations({
-         storeSetCat: 'SET_CATEGORIES',
-     }),
     changeWorkWindow(type){
-           
+           console.log(renderCategories, type)
     },
  },
- created(){
-            for(let i = 0;i < this.products.length; i++){
-                let duplicated =  this.categoryId.includes(this.products[i].userId)
-                if(!duplicated){
-                    this.categoryId.push(this.products[i].userId)
-                }
-            }
-            for(let j = 0;j < this.categoryId.length;j++){
-                this.categories.push({title: this.categoryName[j], id: this.categoryId[j]})
-            }
+ 
 
-},
-mounted(){
-
-       this.storeSetCat(this.categories)
-}
 }
 </script>
 <style scoped>
@@ -63,7 +44,6 @@ flex-wrap: wrap;
 align-content: center;
 justify-content: space-between;
 background-color: #fcee0a;
-
 -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
 -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
 box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);

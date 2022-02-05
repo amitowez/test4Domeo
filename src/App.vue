@@ -1,5 +1,5 @@
 <template>
-  <div >
+  <div>
     <Navbar />
     <router-view />
   </div>
@@ -11,7 +11,7 @@ export default {
   name: 'App',
   components: { Navbar },
   data: () => ({}),
-  mounted(){
+ mounted(){
      this.$store.dispatch("getPosts");
   }
 };
