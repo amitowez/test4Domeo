@@ -1,12 +1,16 @@
 <template>
 <div class="product">
-
     <img :src="product.photoData.thumbnailUrl" :alt="product.photoData.alt">
-    <router-link  class="title" :to="{ name: 'product', params: { id: product.productId } }">{{product.productName}}</router-link>
+    <router-link
+    class="title" 
+    :to="{ name: 'product', params: { id: product.productId } }">
+    {{product.productName}}
+    </router-link>
     <div class="discription">{{product.productDescription}}</div>
 </div>
 </template>
 <script>
+import {mapMutations} from 'vuex'
 export default {
     props:['product'],
   data(){
@@ -15,7 +19,9 @@ export default {
       }
   },
   methods:{
- 
+      ...mapMutations({
+        storeSetCurrentPage: 'SET_CURRENTPAGE',
+     }),
   },
   mounted(){
 

@@ -1,20 +1,20 @@
 <template>
     <div  class="header">
         <div class="header-group">
-            <router-link class="header-text" style="cursor: pointer;" to="/showcase">Все товары</router-link>
+            <router-link  class="header-text" style="cursor: pointer;" to="/showcase">Все товары</router-link>
             <div class="header-text dropdown">
              <div class="dropbtn">По категориям</div>
                 <div class="dropdown-content">
-                    <div v-for="category in productCategories" :key="category" class="item">{{category}}</div>
+                    <div v-for="category in productCategories" :key="category" class="item">{{category.categoryName}}</div>
                 </div>
             </div>
             <div  class="header-text" style="cursor: pointer;">Контакты</div>
         </div>
-        <router-link class="header-text" style="cursor: pointer;" to="/cart">Корзина</router-link>
+        <router-link   class="header-text" style="cursor: pointer;" to="/cart">Корзина</router-link>
     </div>
 </template>
 <script>
-import {mapState, mapGetters} from 'vuex'
+import {mapState, mapGetters, mapMutations} from 'vuex'
 export default {
  data(){
      return{
@@ -28,6 +28,9 @@ export default {
      }),
  },
  methods:{
+     ...mapMutations({
+        storeSetCurrentPage: 'SET_CURRENTPAGE',
+     }),
 
     changeWorkWindow(type){
            console.log(renderCategories, type)

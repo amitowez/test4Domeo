@@ -1,5 +1,5 @@
 <template>
- <div class="container-show-case">
+ <div  class="container-show-case">
      <LeftPanel />
     <div class="showCase">
         <ProductItem v-for="product in products" :key="product.id" :product="product" />
