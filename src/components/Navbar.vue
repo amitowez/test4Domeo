@@ -10,7 +10,7 @@
             </div>
             <div  class="header-text" style="cursor: pointer;">Контакты</div>
         </div>
-        <router-link   class="header-text" style="cursor: pointer;" to="/cart">Корзина</router-link>
+        <router-link   class="header-text" style="cursor: pointer;" to="/cart">Корзина <span v-if="cartLength !== 0" >{{': '+cartLength }}</span>  </router-link>
     </div>
 </template>
 <script>
@@ -25,7 +25,11 @@ export default {
     ...mapGetters(['productCategories']),
      ...mapState({
          products: 'products',
+         cart: 'cart',
      }),
+     cartLength(){
+         return this.cart.length
+     }
  },
  methods:{
      ...mapMutations({

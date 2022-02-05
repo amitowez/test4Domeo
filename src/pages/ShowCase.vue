@@ -2,7 +2,7 @@
  <div  class="container-show-case">
      <LeftPanel />
     <div class="showCase">
-        <ProductItem v-for="product in products" :key="product.id" :product="product" />
+        <ProductItem v-for="product in products" :key="product.productId" :product="product" />
     </div>
  </div>
 </template>

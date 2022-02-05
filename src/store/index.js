@@ -4,11 +4,33 @@ import categoriesName from "../constants/categoriesName";
 import { getPhotos } from "../api/getPhotos";
 export default createStore({
   state: {
+    cart: [],
     products: [],
   },
   mutations: {
     SET_PRODUCTS(state, products) {
       state.products = products;
+    },
+    SET_ITEM_CART(state, { id: id, count: count }) {
+      let item = state.cart.find((item) => item.id === id);
+      if (!item) {
+        let cartItem = {};
+        let productItem = state.products.find((item) => item.productId === id);
+        if (productItem) {
+          cartItem.id = productItem.productId;
+          cartItem.productName = productItem.productName;
+          cartItem.thumbnailUrl = productItem.photoData.thumbnailUrl;
+          cartItem.alt = productItem.photoData.alt;
+          cartItem.value = count;
+          state.cart.push(cartItem);
+        }
+      } else {
+        item.value = count;
+        if (item.value === 0) {
+          console.log(state.cart.filter((el) => +el.id !== item.id));
+          state.cart = state.cart.filter((el) => +el.id !== item.id);
+        }
+      }
     },
   },
   actions: {
