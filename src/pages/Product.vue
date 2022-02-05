@@ -18,7 +18,8 @@ export default {
             products: 'products',
         }),
         product() {
-        return this.products.find(product => product.productName === +this.$route.params.id);
+        
+        return this.products.find(product =>  product.productId === +this.$route.params.id);
         },
     },
     methods:{
