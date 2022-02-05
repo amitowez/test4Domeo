@@ -18,11 +18,11 @@ export default {
 </script>
 <style scoped>
 .leftPanel{
-    width: 300px;
-    height: 100%;
-    background-color: red;
+    width: 25%;
+    height: 20%;
+    background-color: #fcee0a;
 }
 .sort-select{
-    width: 200px;
+    width: 150px;
 }
 </style>

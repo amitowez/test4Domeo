@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <Navbar />
     <router-view />
   </div>
@@ -12,12 +12,17 @@ export default {
   components: { Navbar },
   data: () => ({}),
  mounted(){
-     this.$store.dispatch("getPosts");
+     this.$store.dispatch("getProducts", { _limit: 20, });
   }
 };
 </script>
 <style >
 body {
   background-color: #000;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 }
 </style>

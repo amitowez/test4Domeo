@@ -1,15 +1,16 @@
 <template>
     <div  class="header">
         <div class="header-group">
-            <div @click="changeWorkWindow('all')" class="header-text" style="cursor: pointer;">Все товары</div>  
+            <router-link class="header-text" style="cursor: pointer;" to="/showcase">Все товары</router-link>
             <div class="header-text dropdown">
              <div class="dropbtn">По категориям</div>
                 <div class="dropdown-content">
                     <div v-for="category in productCategories" :key="category" class="item">{{category}}</div>
                 </div>
             </div>
-            <div @click="changeWorkWindow('contact')" class="header-text" style="cursor: pointer;">Контакты</div>
+            <div  class="header-text" style="cursor: pointer;">Контакты</div>
         </div>
+        <router-link class="header-text" style="cursor: pointer;" to="/cart">Корзина</router-link>
     </div>
 </template>
 <script>
@@ -27,6 +28,7 @@ export default {
      }),
  },
  methods:{
+
     changeWorkWindow(type){
            console.log(renderCategories, type)
     },
@@ -38,7 +40,7 @@ export default {
 <style scoped>
 .header {
 width: 100%;
-height: 60px;
+height: 80px;
 display: flex;
 flex-wrap: wrap;
 align-content: center;
@@ -66,6 +68,8 @@ box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
     border: 3px solid black;
     border-radius: 5px;
     transition: 300ms;
+    text-decoration:none;
+    color: black;
 }
 .header-text:hover{
     background-color: black;

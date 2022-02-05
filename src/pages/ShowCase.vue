@@ -1,32 +1,43 @@
 <template>
- <div class="container">
+ <div class="container-show-case">
      <LeftPanel />
     <div class="showCase">
-
+        <ProductItem v-for="product in products" :key="product.id" :product="product" />
     </div>
  </div>
 </template>
 <script>
 import LeftPanel from '../components/ShowCase/LeftPanel.vue'
+import ProductItem from '../components/ShowCase/ProductItem.vue'
+import {mapState} from 'vuex'
 export default {
-    components: {LeftPanel},
+    components: {LeftPanel,ProductItem},
   data(){
       return{
 
       }
-  }
+  },
+  computed:{
+ ...mapState({
+         products: 'products',
+     }),
+  },
 }
 </script>
 <style scoped>
-.container{
+.container-show-case{
+    flex: auto;
+    background-color: black;
     display: flex;
     width: 100%;
-    height: 675px;
+    height: 100%;
     position: relative;
 }
 .showCase{
-    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    width: 75%;
     height: 100%;
-    border: 1px solid yellow;
+
 }
 </style>
