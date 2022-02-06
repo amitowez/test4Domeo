@@ -27,7 +27,6 @@ export default createStore({
       } else {
         item.value = count;
         if (item.value === 0) {
-          console.log(state.cart.filter((el) => +el.id !== item.id));
           state.cart = state.cart.filter((el) => +el.id !== item.id);
         }
       }

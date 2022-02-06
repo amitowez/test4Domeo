@@ -1,68 +1,70 @@
 <template>
-<div class="product">
-    <div class="product-discription-group">
-    <img :src="product.photoData.thumbnailUrl" :alt="product.photoData.alt">
-    <router-link
-    class="title" 
-    :to="{ name: 'product', params: { id: product.productId } }">
-   <h2> {{product.productName}} </h2>
-    </router-link>
-    <div class="discription">{{product.productDescription}}</div>
+  <div class="product-wrapper">
+    <div class="product-description-group">
+      <img :src="product.photoData.thumbnailUrl" :alt="product.photoData.alt" />
+      <router-link
+        class="title"
+        :to="{ name: 'product', params: { id: product.productId } }"
+      >
+        <h2>{{ product.productName }}</h2>
+      </router-link>
+      <div class="description">{{ product.productDescription }}</div>
     </div>
     <div>
-    <ButtonAdd :id="product.productId" />
+      <ButtonAdd :id="product.productId" />
     </div>
-</div>
+  </div>
 </template>
 <script>
-import ButtonAdd from '../ButtonCartGroup.vue'
-import {mapMutations} from 'vuex'
+import ButtonAdd from "../ButtonCartGroup.vue";
+import { mapMutations } from "vuex";
 export default {
-    components:{ ButtonAdd },
-    props:['product'],
-  data(){
-      return{
-
-      }
+  components: { ButtonAdd },
+  props: ["product"],
+  data() {
+    return {};
   },
-  methods:{
-      ...mapMutations({
-        storeSetCurrentPage: 'SET_CURRENTPAGE',
-     }),
+  methods: {
+    ...mapMutations({
+      storeSetCurrentPage: "SET_CURRENTPAGE",
+    }),
   },
-  mounted(){
-
-  }
-}
+  mounted() {},
+};
 </script>
 <style scoped>
-.product-discription-group{
-        box-sizing: border-box;
-    display: flex;
-        justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
-    align-content: stretch;
+.product-description-group {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  align-content: stretch;
 }
-.product{
-    box-sizing: border-box;
-    display: flex;
-    padding: 5px;
-    width: 18%;
-    margin: 10px;
-    height: 60%;
-    background-color: #fcee0a;
-    color: black;
-    border-radius: 5px;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: column;
-    align-content: stretch;
+.product-wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  margin: 10px;
+  background-color: #fcee0a;
+  color: black;
+  border-radius: 5px;
+  align-items: center;
+  flex-direction: column;
+  flex: 1 1 0;
+  min-width: 250px;
 }
 
-.title{
-    text-decoration: none;
-    color: black;
+.title {
+  transition: color 0.2s ease-in-out;
+  color: black;
+  margin: 10px 0;
+  text-decoration: none;
+  font-size: 20px;
 }
 
+.title:hover {
+  color: rgb(255, 0, 128);
+  font-size: 20px;
+}
 </style>

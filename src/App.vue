@@ -5,24 +5,25 @@
   </div>
 </template>
 <script>
-// import Vue from 'vue';
 import Navbar from './components/Navbar.vue';
 export default {
   name: 'App',
   components: { Navbar },
   data: () => ({}),
- mounted(){
-     this.$store.dispatch("getProducts", { _limit: 20, });
-  }
+  mounted() {
+    this.$store.dispatch('getProducts', { _limit: 20 });
+  },
 };
 </script>
-<style >
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 body {
+  font-family: Roboto;
   background-color: #000;
 }
-.container{
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 </style>

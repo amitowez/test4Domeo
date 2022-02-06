@@ -1,43 +1,44 @@
 <template>
- <div  class="container-show-case">
-     <LeftPanel />
+  <div class="container-show-case">
+    <ProductFilter />
     <div class="showCase">
-        <ProductItem v-for="product in products" :key="product.productId" :product="product" />
+      <ProductItem
+        v-for="product in products"
+        :key="product.productId"
+        :product="product"
+      />
     </div>
- </div>
+  </div>
 </template>
 <script>
-import LeftPanel from '../components/ShowCase/LeftPanel.vue'
-import ProductItem from '../components/ShowCase/ProductItem.vue'
-import {mapState} from 'vuex'
+import ProductFilter from "../components/ShowCase/ProductFilter.vue";
+import ProductItem from "../components/ShowCase/ProductItem.vue";
+import { mapState } from "vuex";
 export default {
-    components: {LeftPanel,ProductItem},
-  data(){
-      return{
-
-      }
+  components: { ProductFilter, ProductItem },
+  data() {
+    return {};
   },
-  computed:{
- ...mapState({
-         products: 'products',
-     }),
+  computed: {
+    ...mapState({
+      products: "products",
+    }),
   },
-}
+};
 </script>
 <style scoped>
-.container-show-case{
-    flex: auto;
-    background-color: black;
-    display: flex;
-    width: 100%;
-    height: 100%;
-    position: relative;
+.container-show-case {
+  background-color: black;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  position: relative;
+  justify-content: center;
+  align-items: center;
 }
-.showCase{
-    display: flex;
-    flex-wrap: wrap;
-    width: 75%;
-    height: 100%;
-
+.showCase {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
 }
 </style>
