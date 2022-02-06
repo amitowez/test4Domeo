@@ -12,9 +12,9 @@
   </div>
 </template>
 <script>
-import Pagination from "../components/ShowCase/Pagination.vue";
-import ProductFilter from "../components/ShowCase/ProductFilter.vue";
-import ProductItem from "../components/ShowCase/ProductItem.vue";
+import Pagination from "./Pagination.vue";
+import ProductFilter from "./ProductFilter.vue";
+import ProductItem from "./ProductItem.vue";
 import { mapState } from "vuex";
 export default {
   components: { ProductFilter, ProductItem, Pagination },

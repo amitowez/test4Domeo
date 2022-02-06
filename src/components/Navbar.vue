@@ -9,12 +9,19 @@
             :key="category"
             class="dropdown-content__item"
           >
-            {{ category.categoryName }}
+            <router-link
+              :to="{
+                name: 'categoryshowcase',
+                params: { id: category.categoryId },
+              }"
+            >
+              {{ category.categoryName }}</router-link
+            >
           </div>
         </div>
       </div>
       <div class="menu-group__item">
-        <router-link class="menu-group__link" to="/showcase"
+        <router-link class="menu-group__link" to="/allshowcase"
           >Все товары</router-link
         >
       </div>

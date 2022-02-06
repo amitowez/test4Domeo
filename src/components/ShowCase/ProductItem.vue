@@ -39,7 +39,6 @@ export default {
   mounted() {
     let newDescription = [];
     let description = this.product.productDescription.split("");
-    console.log(description.length);
     if (description.length > 50) {
       for (let i = 0; i < 49; i++) {
         newDescription.push(description[i]);
