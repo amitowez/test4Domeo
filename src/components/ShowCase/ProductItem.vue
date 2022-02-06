@@ -8,7 +8,7 @@
       >
         <h2>{{ product.productName }}</h2>
       </router-link>
-      <div class="description">{{ product.productDescription }}</div>
+      <div class="description">{{ changeDescription }}</div>
     </div>
     <div>
       <ButtonAdd :id="product.productId" />
@@ -22,14 +22,31 @@ export default {
   components: { ButtonAdd },
   props: ["product"],
   data() {
-    return {};
+    return {
+      description: "",
+    };
+  },
+  computed: {
+    changeDescription() {
+      return this.description;
+    },
   },
   methods: {
     ...mapMutations({
       storeSetCurrentPage: "SET_CURRENTPAGE",
     }),
   },
-  mounted() {},
+  mounted() {
+    let newDescription = [];
+    let description = this.product.productDescription.split("");
+    console.log(description.length);
+    if (description.length > 50) {
+      for (let i = 0; i < 49; i++) {
+        newDescription.push(description[i]);
+      }
+      this.description = newDescription.join("") + "...";
+    }
+  },
 };
 </script>
 <style scoped>
@@ -52,7 +69,7 @@ export default {
   align-items: center;
   flex-direction: column;
   flex: 1 1 0;
-  min-width: 250px;
+  min-width: 15%;
 }
 
 .title {
@@ -66,5 +83,8 @@ export default {
 .title:hover {
   color: rgb(255, 0, 128);
   font-size: 20px;
+}
+.description {
+  margin: 10px;
 }
 </style>

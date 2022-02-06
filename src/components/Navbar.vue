@@ -1,12 +1,6 @@
 <template>
   <div class="header">
     <div class="menu-group">
-      <div class="menu-group__item">
-        <router-link class="menu-group__link" to="/showcase"
-          >Все товары</router-link
-        >
-      </div>
-
       <div class="menu-group__item dropdown">
         <div class="dropdown-button">По категориям</div>
         <div class="dropdown-content">
@@ -21,6 +15,11 @@
       </div>
       <div class="menu-group__item">
         <router-link class="menu-group__link" to="/showcase"
+          >Все товары</router-link
+        >
+      </div>
+      <div class="menu-group__item">
+        <router-link class="menu-group__link" to="/contact"
           >Контакты</router-link
         >
       </div>
@@ -39,8 +38,8 @@ export default {
     return {};
   },
   computed: {
-    ...mapGetters(["productCategories"]),
     ...mapState({
+      productCategories: "productCategories",
       products: "products",
       cart: "cart",
     }),
@@ -51,6 +50,7 @@ export default {
   methods: {
     ...mapMutations({
       storeSetCurrentPage: "SET_CURRENTPAGE",
+      storeFilterByCategory: "FILTER_BY_CATEGORY",
     }),
 
     changeWorkWindow(type) {

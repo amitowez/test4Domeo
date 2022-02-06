@@ -8,14 +8,16 @@
         :product="product"
       />
     </div>
+    <Pagination />
   </div>
 </template>
 <script>
+import Pagination from "../components/ShowCase/Pagination.vue";
 import ProductFilter from "../components/ShowCase/ProductFilter.vue";
 import ProductItem from "../components/ShowCase/ProductItem.vue";
 import { mapState } from "vuex";
 export default {
-  components: { ProductFilter, ProductItem },
+  components: { ProductFilter, ProductItem, Pagination },
   data() {
     return {};
   },
