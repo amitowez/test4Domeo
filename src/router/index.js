@@ -7,13 +7,13 @@ import Contact from "../pages/Contact.vue";
 
 const routes = [
   { path: "/", redirect: "/showcase" },
-  { path: "/allshowcase", name: "allshowcase", component: AllShowCase },
+  { path: "/products", name: "products", component: AllShowCase },
   { path: "/cart", name: "cart", component: Cart },
   { path: "/product/:id", name: "product", component: Product },
   { path: "/contact", name: "contact", component: Contact },
   {
-    path: "/categoryshowcase/:id",
-    name: "categoryshowcase",
+    path: "/products/:id",
+    name: "productsByCategory",
     component: CategoryShowCase,
   },
 ];

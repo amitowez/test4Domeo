@@ -8,23 +8,38 @@
         :product="product"
       />
     </div>
-    <Pagination />
   </div>
 </template>
 <script>
-import Pagination from "./Pagination.vue";
 import ProductFilter from "./ProductFilter.vue";
 import ProductItem from "./ProductItem.vue";
 import { mapState } from "vuex";
 export default {
-  components: { ProductFilter, ProductItem, Pagination },
+  components: { ProductFilter, ProductItem },
+  props: ["categoryId"],
   data() {
     return {};
+  },
+  watch: {
+    categoryId() {
+      if (this.categoryId) {
+        this.$store.dispatch("getProducts", {
+          userId: this.categoryId,
+        });
+      }
+    },
   },
   computed: {
     ...mapState({
       products: "products",
     }),
+  },
+  mounted() {
+    if (this.categoryId) {
+      this.$store.dispatch("getProducts", {
+        userId: this.categoryId,
+      });
+    }
   },
 };
 </script>

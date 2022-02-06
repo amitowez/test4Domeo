@@ -11,7 +11,7 @@
           >
             <router-link
               :to="{
-                name: 'categoryshowcase',
+                name: 'productsByCategory',
                 params: { id: category.categoryId },
               }"
             >
@@ -21,7 +21,7 @@
         </div>
       </div>
       <div class="menu-group__item">
-        <router-link class="menu-group__link" to="/allshowcase"
+        <router-link class="menu-group__link" to="/products"
           >Все товары</router-link
         >
       </div>
@@ -39,7 +39,7 @@
   </div>
 </template>
 <script>
-import { mapState, mapGetters, mapMutations } from "vuex";
+import { mapState, mapMutations } from "vuex";
 export default {
   data() {
     return {};

@@ -13,11 +13,6 @@ export default createStore({
     },
   },
   mutations: {
-    FILTER_BY_CATEGORY(state, categoryId) {
-      state.products = state.products.filter(
-        ({ productCategoryId }) => productCategoryId === categoryId
-      );
-    },
     SET_PRODUCTS(state, products) {
       state.products = products;
     },
