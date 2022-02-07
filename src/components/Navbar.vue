@@ -64,6 +64,9 @@ a {
   text-decoration: none;
   color: #fcee0a;
 }
+a:hover {
+  color: #02d8f3;
+}
 .header {
   max-width: 100%;
   padding: 6px;
@@ -141,12 +144,6 @@ a {
   display: block;
   background-color: black;
   border: 1px solid #202020;
-}
-
-.dropdown-content__item:hover {
-  background-color: black;
-  cursor: pointer;
-  color: #02d8f3;
 }
 
 .dropdown:hover .dropdown-content {
