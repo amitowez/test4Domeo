@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="all-container">
     <ShowCase />
     <Pagination />
   </div>
@@ -11,3 +11,10 @@ export default {
   components: { ShowCase, Pagination },
 };
 </script>
+<style scoped>
+.all-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+</style>

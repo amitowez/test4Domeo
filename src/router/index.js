@@ -6,7 +6,7 @@ import Product from "../pages/Product.vue";
 import Contact from "../pages/Contact.vue";
 
 const routes = [
-  { path: "/", redirect: "/showcase" },
+  { path: "/", redirect: "/products" },
   { path: "/products", name: "products", component: AllShowCase },
   { path: "/cart", name: "cart", component: Cart },
   { path: "/product/:id", name: "product", component: Product },
