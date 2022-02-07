@@ -17,9 +17,6 @@ import { mapState } from "vuex";
 export default {
   components: { ProductFilter, ProductItem },
   props: ["categoryId"],
-  data() {
-    return {};
-  },
   watch: {
     categoryId() {
       if (this.categoryId) {

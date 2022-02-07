@@ -41,9 +41,6 @@
 <script>
 import { mapState, mapMutations } from "vuex";
 export default {
-  data() {
-    return {};
-  },
   computed: {
     ...mapState({
       productCategories: "productCategories",
@@ -59,10 +56,6 @@ export default {
       storeSetCurrentPage: "SET_CURRENTPAGE",
       storeFilterByCategory: "FILTER_BY_CATEGORY",
     }),
-
-    changeWorkWindow(type) {
-      console.log(renderCategories, type);
-    },
   },
 };
 </script>

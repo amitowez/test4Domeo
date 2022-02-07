@@ -11,9 +11,6 @@ import ButtonAdd from "../ButtonCartGroup.vue";
 export default {
   components: { ButtonAdd },
   props: ["item"],
-  data() {
-    return {};
-  },
 };
 </script>
 <style scoped>

@@ -14,9 +14,6 @@ import { mapState } from "vuex";
 import CartItem from "../components/cart/CartItem.vue";
 export default {
   components: { CartItem },
-  data() {
-    return {};
-  },
   computed: {
     ...mapState({
       cart: "cart",
