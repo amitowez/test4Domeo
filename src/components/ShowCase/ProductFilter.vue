@@ -13,7 +13,8 @@
       class="select"
       @change="this.storeChangeProductsAmount($event.target.value)"
     >
-      <option selected value="10">Показывать по 10</option>
+      <option selected value="100">Показать всё</option>
+      <option value="10">Показывать по 10</option>
       <option value="20">Показывать по 20</option>
     </select>
   </div>
