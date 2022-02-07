@@ -13,8 +13,10 @@
       class="select"
       @change="this.storeChangeProductsAmount($event.target.value)"
     >
-      <option selected value="100">Показать всё</option>
-      <option value="10">Показывать по 10</option>
+      <option v-if="id === undefind" :selected="id === undefind" value="100">
+        Показать всё
+      </option>
+      <option :selected="id" value="10">Показывать по 10</option>
       <option value="20">Показывать по 20</option>
     </select>
   </div>
@@ -23,6 +25,7 @@
 import { mapMutations, mapState } from "vuex";
 
 export default {
+  props: ["id"],
   watch: {
     storePerPage() {
       this.$store.dispatch("getProducts", {

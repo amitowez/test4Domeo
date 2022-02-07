@@ -1,6 +1,6 @@
 <template>
   <div class="container-show-case">
-    <ProductFilter />
+    <ProductFilter :id="categoryId" />
     <div class="showCase">
       <ProductItem
         v-for="product in products"
