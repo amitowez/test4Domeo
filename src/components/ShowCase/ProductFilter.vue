@@ -17,7 +17,7 @@
         Показать всё
       </option>
       <option :selected="id" value="10">Показывать по 10</option>
-      <option value="20">Показывать по 20</option>
+      <option v-if="id === undefind" value="20">Показывать по 20</option>
     </select>
   </div>
 </template>
