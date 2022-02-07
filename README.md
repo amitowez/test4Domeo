@@ -1,5 +1,5 @@
 # demo
-https://test4-domeo.vercel.app
+https://test4domeo.vercel.app
 
 ## Project setup
 ```
