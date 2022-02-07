@@ -1,5 +1,5 @@
 # demo
-test4-domeo-k117m7f5u-amitowez.vercel.app
+https://test4-domeo.vercel.app
 
 ## Project setup
 ```
