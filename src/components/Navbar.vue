@@ -60,6 +60,10 @@ export default {
 };
 </script>
 <style scoped>
+a {
+  text-decoration: none;
+  color: #fcee0a;
+}
 .header {
   max-width: 100%;
   padding: 6px;
